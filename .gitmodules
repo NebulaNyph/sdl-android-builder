@@ -1,6 +1,3 @@
-[submodule "to-build/sdl3-sample"]
-	path = to-build/sdl3-sample
-	url = https://github.com/ravbug/sdl3-sample
-	branch = no-android
-[submodule "sdl3-sample"]
-	branch = no-android
+[submodule "to-build/mygame/RavEngine"]
+	path = to-build/mygame/RavEngine
+	url = https://github.com/RavEngine/RavEngine.git
