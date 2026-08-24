@@ -18,6 +18,9 @@ workflows:
           include: true
           source: true
     scripts:
+      - name: Install CMake 3.25
+        script: |
+          brew install cmake
       - name: Fix Submodules and Clone RavEngine
         script: |
           git config --global --add safe.directory "*"
@@ -26,6 +29,7 @@ workflows:
           git clone --depth 1 https://github.com/RavEngine/RavEngine.git to-build/mygame/RavEngine
       - name: Build Android APK
         script: |
+          export PATH="/opt/homebrew/bin:$PATH"
           ./gradlew assembleDebug
     artifacts:
       - app/build/outputs/apk/debug/*.apk
