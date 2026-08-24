@@ -18,13 +18,14 @@ workflows:
           include: true
           source: true
     scripts:
-      - name: Clone RavEngine
+      - name: Fix Submodules and Clone RavEngine
         script: |
+          git config --global --add safe.directory "*"
+          git rm --cached to-build/sdl3-sample 2>/dev/null || true
           rm -rf to-build/sdl3-sample
           git clone --depth 1 https://github.com/RavEngine/RavEngine.git to-build/mygame/RavEngine
       - name: Build Android APK
         script: |
-          cd app
           ./gradlew assembleDebug
     artifacts:
       - app/build/outputs/apk/debug/*.apk
