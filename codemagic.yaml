@@ -18,9 +18,10 @@ workflows:
           include: true
           source: true
     scripts:
-      - name: Update Git Submodules
+      - name: Clone RavEngine
         script: |
-          git submodule update --init --recursive
+          rm -rf to-build/sdl3-sample
+          git clone --depth 1 https://github.com/RavEngine/RavEngine.git to-build/mygame/RavEngine
       - name: Build Android APK
         script: |
           cd app
